@@ -9,8 +9,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import  { MyContext } from '../../../Context/AuthContext/Authcontext';
 
 
-
-
 const Login = () => {
   const providerr = new GoogleAuthProvider();
   const gitProvider =  new GithubAuthProvider();
@@ -70,10 +68,6 @@ const handleGitSignIn= () =>{
   .catch(error => console.error(error))
 }
 
-
-
-
-
     return (
         <div className='mt-4'>
             <div className='mt-4'> 
@@ -96,14 +90,13 @@ const handleGitSignIn= () =>{
       </Form.Group>
 
       
-      <Form.Group className="mb-3" >
-        {/* <Form.Check type="checkbox" label="Check me out" /> */}
+      <Form.Group className="mb-3">
         
       </Form.Group>
       <Button className='w-100 my-3' variant="outline-dark" type='submit'>Log In</Button>
       
 
-<ButtonGroup vertical className='w-100 mt-2'>
+        <ButtonGroup vertical className='w-100 mt-2'>
             <Button onClick={handleGoogleSignIn}  variant="outline-primary" className='mb-2'><FaGoogle></FaGoogle> Login With Google</Button>
             <Button onClick={handleGitSignIn} variant="outline-dark" className='mb-2'><FaGithub></FaGithub> Login With GitHub</Button>      
         </ButtonGroup>
