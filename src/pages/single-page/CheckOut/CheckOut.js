@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import { Document, Page } from 'react-pdf';
 const CheckOut = () => {
     const checked = useLoaderData()
-    console.log(checked)
+    
     const ref = createRef()
     return (
         <div className='m-5' ref={ref}>
