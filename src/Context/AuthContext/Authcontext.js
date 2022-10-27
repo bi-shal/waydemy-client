@@ -2,34 +2,33 @@ import React, {createContext } from 'react';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
 import app from '../../Firebase/FirebaseConfig';
 
-import { GithubAuthProvider } from "firebase/auth";
 import { signInWithPopup } from "firebase/auth";
 import { useState } from 'react';
 import { useEffect } from 'react';
 
 //googleAuthProvider
 export const MyContext = createContext();
-const auth = getAuth(app)
+const auth = getAuth(app);
 
 const Authcontext = ({children}) => {
 
-    const [user,setUser] = useState(null)
-    const [loading,setLoading] = useState(true)
+    const [user,setUser] = useState(null);
+    const [loading,setLoading] = useState(true);
 
 
-//Sign up new users
+//Sign up new users-----------------------
 const createUserEmailAndPassword = (email,password) => {
     return createUserWithEmailAndPassword(auth, email, password)
 }
 
 
-//SignIn user
+//SignIn user------------------------------
 const signInUser =(email,password) => {
     return signInWithEmailAndPassword(auth, email, password)
 }
 
 
-//googleAuthProvider
+//googleAuthProvider-----------------------
 const providerLogin =(provider) => {
     return signInWithPopup(auth, provider)
 }
@@ -39,7 +38,7 @@ const gitSignIn = (provider) => {
     return signInWithPopup(auth, provider)
 }
 
-//Get the currently signed-in user
+//Get the currently signed-in user---------
 
 useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -51,17 +50,18 @@ useEffect(() => {
     }
 },[])
 
-//Update a user's profile
+//Update a user's profile------------------
 const updateKoroTomarProfile = (profile) => {
     return updateProfile(auth.currentUser,profile)
 }
 
-//logOut
+//logOut----------------------------------
 const logOut =() => {
     return signOut(auth)
 }
 
-const info = {user,
+const info = {
+    user,
     providerLogin,
     createUserEmailAndPassword,
     signInUser,

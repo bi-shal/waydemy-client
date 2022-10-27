@@ -16,14 +16,11 @@ const {signInUser,providerLogin,gitSignIn,setUser} = useContext(MyContext);
 // console.log(user);
 
 const navigate = useNavigate();
-
-
-const location = useLocation()
+const location = useLocation();
 // console.log(location);
 
 
 const from = location.state?.from?.pathname || '/';
-console.log(from)
 
 
 const handleLogin = (event) => {
