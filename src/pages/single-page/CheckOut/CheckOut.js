@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
 import { Document, Page } from 'react-pdf';
@@ -27,7 +27,7 @@ const CheckOut = () => {
           </Card.Text>
         </Card.Body>
         <Card.Img variant="bottom" src={checked.img} />
-
+        <Button variant="dark" className='btn-cart py-2 text-white mt-3' ><Link  to={`/`} style={{textDecoration:'none',  color:'gray',color:'white',marginTop:'10px'}} className=''>Back To Home</Link></Button>
         <div targetRef={ref} filename='somefile.pdf'>
             {({toPdf}) => (
                 <Button onClick={toPdf}>

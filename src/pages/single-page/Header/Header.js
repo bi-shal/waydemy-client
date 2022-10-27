@@ -10,9 +10,15 @@ import { MyContext } from '../../../Context/AuthContext/Authcontext';
 import { Image } from 'react-bootstrap';
 import { FaImages } from 'react-icons/fa';
 
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 const Header = () => {
   const {user,logOut} = useContext(MyContext)
-  console.log(user);
+  // console.log(user);
 
   const loginOut =()=>{
     logOut()
@@ -25,18 +31,23 @@ const Header = () => {
 
 
 
+  const nameShow = () => {
+    toast(user?.displayName);
+  }
+
     return (
 <div>
           
   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='p-4'>
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Link className='' style={{textDecoration:'none', color:'yellow', fontSize:'20px'}} to='/'><p style={{fontWeight:'bolder'}}>Way Demy</p></Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="m-auto">
-                  <Button className='me-3' variant="dark"><Link to={'/courses'} style={{textDecoration:'none', color:'white'}}>Courses</Link></Button>
-                  <Button className='me-3' variant="dark"><Link to={'/faq'} style={{textDecoration:'none', color:'white'}}>Faq</Link></Button>
-                  <Button className='me-3' variant="dark"><Link to={'/blog'} style={{textDecoration:'none', color:'white'}}>Blog</Link></Button>           
+                  <Button className='me-3' variant="dark"><Link to={'/'} style={{textDecoration:'none', color:'white',fontWeight:'bolder'}}>Home</Link></Button>
+                  <Button className='me-3' variant="dark"><Link to={'/courses'} style={{textDecoration:'none', color:'white',fontWeight:'bolder'}}>Courses</Link></Button>
+                  <Button className='me-3' variant="dark"><Link to={'/faq'} style={{textDecoration:'none', color:'white',fontWeight:'bolder'}}>Faq</Link></Button>
+                  <Button className='me-3' variant="dark"><Link to={'/blog'} style={{textDecoration:'none', color:'white',fontWeight:'bolder'}}>Blog</Link></Button>           
           </Nav>
           <Nav>
             
@@ -45,9 +56,6 @@ const Header = () => {
               user?.uid ?
               <>
               <Button  onClick={loginOut} variant="outline-light"><Link to='/register' style={{textDecoration:'none',  color:'gray'}} className=''>Sign out</Link></Button>
-              {/* <span className='' style={{color:'white', marginTop:'5px'}}>{user?.displayName}</span> */}
-              
-              
               </>
               :
               <>
@@ -60,13 +68,15 @@ const Header = () => {
            <>
            <Nav.Link eventKey={2} href="#memes">
               {user?.photoURL? 
-              <Image style={{height:'30px'}} roundedCircle src={user?.photoURL}></Image>  
+              <>
+              <Button style={{marginLeft:'20px'}} variant='outline-secondary' onFocus={nameShow}><Image style={{height:'30px'}} roundedCircle src={user?.photoURL}></Image>  </Button>
+              <ToastContainer />
+              </>
               : <FaImages></FaImages>
             }
             </Nav.Link>
            </>
-            
-            
+     
           </Nav>
         </Navbar.Collapse>
       </Container>

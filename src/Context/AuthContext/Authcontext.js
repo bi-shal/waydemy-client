@@ -2,6 +2,7 @@ import React, {createContext } from 'react';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
 import app from '../../Firebase/FirebaseConfig';
 
+import { GithubAuthProvider } from "firebase/auth";
 import { signInWithPopup } from "firebase/auth";
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -33,6 +34,11 @@ const providerLogin =(provider) => {
     return signInWithPopup(auth, provider)
 }
 
+//github-auth-provider
+const gitSignIn = (provider) => {
+    return signInWithPopup(auth, provider)
+}
+
 //Get the currently signed-in user
 
 useEffect(() => {
@@ -61,7 +67,9 @@ const info = {user,
     signInUser,
     updateKoroTomarProfile,
     logOut,
-    loading
+    loading,
+    gitSignIn,
+    setUser
 }
     return (
         <div>

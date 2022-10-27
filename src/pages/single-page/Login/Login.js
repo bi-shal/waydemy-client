@@ -1,19 +1,20 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 //Bootstrap-form-
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { FaFacebook, FaGoogle } from "react-icons/fa";
-import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
-import Authcontext, { MyContext } from '../../../Context/AuthContext/Authcontext';
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import  { MyContext } from '../../../Context/AuthContext/Authcontext';
 
 
 
 
 const Login = () => {
   const providerr = new GoogleAuthProvider();
-const {user,signInUser,providerLogin} = useContext(MyContext);
+  const gitProvider =  new GithubAuthProvider();
+const {signInUser,providerLogin,gitSignIn,setUser} = useContext(MyContext);
 // console.log(user);
 
 const navigate = useNavigate();
@@ -36,6 +37,7 @@ const handleLogin = (event) => {
   signInUser (email,password)
   .then(result => {
     const user = result.user;
+    setUser(user)
     console.log(user);
   })
   .catch(error => console.error(error));
@@ -55,6 +57,20 @@ const handleGoogleSignIn = () => {
   })
   .catch(error => console.error(error));
 }
+
+
+//gitSignIn
+const handleGitSignIn= () =>{
+  gitSignIn(gitProvider)
+  .then(result => {
+    const user = result.user;
+    setUser(user)
+    console.log(user);
+  })
+  .catch(error => console.error(error))
+}
+
+
 
 
 
@@ -89,7 +105,7 @@ const handleGoogleSignIn = () => {
 
 <ButtonGroup vertical className='w-100 mt-2'>
             <Button onClick={handleGoogleSignIn}  variant="outline-primary" className='mb-2'><FaGoogle></FaGoogle> Login With Google</Button>
-            <Button variant="outline-dark" className='mb-2'><FaFacebook></FaFacebook> Login With GitHub</Button>      
+            <Button onClick={handleGitSignIn} variant="outline-dark" className='mb-2'><FaGithub></FaGithub> Login With GitHub</Button>      
         </ButtonGroup>
 
 

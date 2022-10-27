@@ -89,11 +89,11 @@ return (
                   <Form.Control type="password" name='password' placeholder="Password" />
             </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check 
           type="checkbox" 
           label={<>Accept <Link to='/terms'>Terms And Condition</Link></>} />
-      </Form.Group>
+      </Form.Group> */}
       
       <p className='text-danger'>{error}</p>
       <Button className='w-100' variant="outline-dark" type='submit'>Sign up</Button>
