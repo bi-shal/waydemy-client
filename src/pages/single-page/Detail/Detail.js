@@ -15,7 +15,7 @@ const Detail = () => {
           <Card.Text>
             {detail.details}
           </Card.Text>
-          <Link to={`/check/${detail.id}`}><Button variant="dark" className='w-100'>Premium</Button></Link>
+          <Link to={`/check/${detail.id}`}><Button variant="dark" className='w-100'>Get Premium Access</Button></Link>
           {/* <Button variant="dark" className='w-100' ><Link  to={`/allnews/${detail.category_id}`} style={{textDecoration:'none',  color:'gray'}} className=''>Detail</Link></Button> */}
         </Card.Body>
       </Card>

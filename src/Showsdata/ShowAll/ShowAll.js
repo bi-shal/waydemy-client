@@ -19,7 +19,7 @@ const ShowAll = ({datas}) => {
             
             
           </div>
-          <Button variant="dark" className='btn-cart py-2 text-white' ><Link  to={`/allnews/${category_id}`} style={{textDecoration:'none',  color:'gray',color:'white'}} className=''>Detail</Link></Button>
+          <Button variant="dark" className=' py-2 text-white' ><Link  to={`/allnews/${category_id}`} style={{textDecoration:'none',color:'white'}} className=''>Detail</Link></Button>
          
         </div>
         
