@@ -14,7 +14,6 @@ root.render(
   <React.StrictMode>
     <Authcontext>
     <App />
-    <ToastContainer />
     </Authcontext>
   </React.StrictMode>
 );
