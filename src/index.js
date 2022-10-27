@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Authcontext from './Context/AuthContext/Authcontext';
-import { ToastContainer } from 'react-bootstrap';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

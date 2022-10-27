@@ -1,16 +1,16 @@
-import React, { createRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
-import { Document, Page } from 'react-pdf';
+
+
 const CheckOut = () => {
     const checked = useLoaderData()
-    
-    const ref = createRef()
+    console.log(checked);
+   
     return (
-        <div className='m-5' ref={ref}>
+        <div  className='m-5' >
             <>
-      <Card>
+      <Card >
         <Card.Body>
           <Card.Text>
            <h1>{checked.title}</h1>
@@ -28,15 +28,10 @@ const CheckOut = () => {
         </Card.Body>
         <Card.Img variant="bottom" src={checked.img} />
         <Button variant="dark" className='btn-cart py-2 text-white mt-3' ><Link  to={`/`} style={{textDecoration:'none',  color:'gray',color:'white',marginTop:'10px'}} className=''>Back To Home</Link></Button>
-        <div targetRef={ref} filename='somefile.pdf'>
-            {({toPdf}) => (
-                <Button onClick={toPdf}>
-                Download Pdf
-            </Button>
-            )}
             
-        </div>
+       
       </Card>
+      
     </>
     </div>
   );

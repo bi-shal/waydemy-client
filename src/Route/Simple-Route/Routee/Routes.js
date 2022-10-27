@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
             {
                 path:'/courses',
                 element:<Courses></Courses>,
-                loader: () => fetch (`http://localhost:5000/all`)
+                loader: () => fetch (`https://assignment-10-server-iota-one.vercel.app/all`)
             },
             {
                 path:'/faq',
@@ -45,12 +45,12 @@ export const router = createBrowserRouter([
             {
                 path:'/allnews/:id',
                 element:<Detail></Detail>,
-                loader:({params}) => fetch(`http://localhost:5000/allnews/${params.id}`)
+                loader:({params}) => fetch(`https://assignment-10-server-iota-one.vercel.app/allnews/${params.id}`)
             },
             {
                 path:'/check/:id',
                 element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader:({params}) => fetch(`http://localhost:5000/check/${params.id}`)
+                loader:({params}) => fetch(`https://assignment-10-server-iota-one.vercel.app/check/${params.id}`)
             },
             {
                 path:'/*',
@@ -62,5 +62,8 @@ export const router = createBrowserRouter([
     }
 ])
 
+// https://assignment-10-server-iota-one.vercel.app/check/2
 
-// /allnews/${d.id}
+// // /allnews/${d.id}
+
+// https://assignment-10-server-iota-one.vercel.app/allnews/01
