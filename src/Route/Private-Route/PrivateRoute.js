@@ -7,10 +7,8 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const PrivateRoute = ({children}) => {
     const {user,loading} = useContext(MyContext);
-    console.log(user);
 
     const location = useLocation()
-    console.log(location);
 
     if(loading){
         return <Spinner animation="border" />;
