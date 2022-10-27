@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 //Bootstrap-form-
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+//router-dom
 import { InputGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { MyContext } from '../../../Context/AuthContext/Authcontext';
 import { useState } from 'react';
 
@@ -88,12 +88,6 @@ return (
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password" name='password' placeholder="Password" />
             </Form.Group>
-
-      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check 
-          type="checkbox" 
-          label={<>Accept <Link to='/terms'>Terms And Condition</Link></>} />
-      </Form.Group> */}
       
       <p className='text-danger'>{error}</p>
       <Button className='w-100' variant="outline-dark" type='submit'>Sign up</Button>
